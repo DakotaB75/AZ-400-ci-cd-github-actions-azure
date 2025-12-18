@@ -1,0 +1,30 @@
+name: CD Production
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy-production:
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://sample-app-prod.azurewebsites.net
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Login to Azure Container Registry
+        uses: azure/docker-login@v2
+        with:
+          login-server: ${{ secrets.ACR_LOGIN_SERVER }}
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
+
+      - name: Build & Push Docker image
+        run: |
+          docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/sample-app:prod .
+          docker push ${{ secrets.ACR_LOGIN_SERVER }}/sample-app:prod
+
+      - name: Deploy to Production
+        run: bash scripts/deploy.sh production
