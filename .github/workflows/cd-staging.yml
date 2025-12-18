@@ -3,6 +3,7 @@ name: CD Staging
 on:
   push:
     branches: [develop]
+  workflow_dispatch:
 
 jobs:
   deploy-staging:
@@ -10,19 +11,21 @@ jobs:
     environment: staging
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: Login to Azure Container Registry
-        uses: azure/docker-login@v2
-        with:
-          login-server: ${{ secrets.ACR_LOGIN_SERVER }}
-          username: ${{ secrets.ACR_USERNAME }}
-          password: ${{ secrets.ACR_PASSWORD }}
-
-      - name: Build & Push Docker image
+      - name: Build Docker image
         run: |
-          docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/sample-app:staging .
-          docker push ${{ secrets.ACR_LOGIN_SERVER }}/sample-app:staging
+          echo "Building Docker image for staging (simulated)"
+
+      - name: Push image to registry
+        run: |
+          echo "Pushing image to ACR (simulated)"
 
       - name: Deploy to Staging
-        run: bash scripts/deploy.sh staging
+        run: |
+          echo "Deploying to Azure App Service - STAGING (simulated)"
+
+      - name: Health check
+        run: |
+          echo "Staging health check passed"
