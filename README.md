@@ -23,6 +23,16 @@ continuous integration and deployment pipelines for frontend applications.
   - Environment protection rules
 
 ---
+## Certification Alignment
+
+This repository is aligned with:
+
+- **Microsoft AZ-400 – Designing and Implementing DevOps Solutions**
+- CI/CD with **Azure Pipelines** and **GitHub Actions**
+
+Certification proof available in `/certifications`
+
+---
 
 ## CI/CD Flow
 
