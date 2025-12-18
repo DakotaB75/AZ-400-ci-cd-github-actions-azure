@@ -1,3 +1,10 @@
+![CI](https://github.com/DakotaB75/AZ-400-ci-cd-github-actions-azure/actions/workflows/ci.yml/badge.svg)
+![CD Prod](https://github.com/DakotaB75/AZ-400-ci-cd-github-actions-azure/actions/workflows/cd-production.yml/badge.svg)
+![CodeQL](https://github.com/DakotaB75/AZ-400-ci-cd-github-actions-azure/actions/workflows/security-codeql.yml/badge.svg)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
+![Version](https://img.shields.io/badge/version-v1.0.0-green)
+![AZ-400](https://img.shields.io/badge/AZ--400-DevOps%20Engineer%20Expert-blue)
+
 # Enterprise CI/CD Pipeline – GitHub Actions + Azure
 
 Production-grade CI/CD architecture using GitHub Actions, Docker and Azure.
